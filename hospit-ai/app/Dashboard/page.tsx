@@ -1,9 +1,12 @@
 import Link from 'next/link'
+import SideBar from '../components/SideBar/SideBar'
 
 const page = () => {
   return (
-    <div>
-        <div>page</div>
+    <div className='flex flex-row'>
+      <SideBar />
+      
+      <div>page</div>
     </div>
   )
 }
