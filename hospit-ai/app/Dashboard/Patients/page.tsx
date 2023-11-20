@@ -2,9 +2,9 @@ import SideBar from "@/app/components/SideBar/SideBar"
 
 const page = () => {
   return (
-    <div>
+    <div className="flex flex-row">
         <SideBar />
-        <div>patients</div>
+        <div>Patients</div>
     </div>
   )
 }

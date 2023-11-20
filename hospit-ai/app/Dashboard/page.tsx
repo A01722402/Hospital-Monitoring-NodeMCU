@@ -5,8 +5,10 @@ const page = () => {
   return (
     <div className='flex flex-row'>
       <SideBar />
-      
-      <div>page</div>
+
+      <div className='text-5xl font-bold p-11'>
+        Pedidos
+      </div>
     </div>
   )
 }
