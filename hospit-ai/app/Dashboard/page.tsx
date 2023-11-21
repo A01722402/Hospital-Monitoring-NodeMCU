@@ -2,10 +2,6 @@ import Link from 'next/link'
 import SideBar from '../components/SideBar/SideBar'
 import Tabla from '../components/Tabla/Tabla'
 
-const data = [
-  {id: 1, name: 'Juan', order: 'Emergencia', time: '12:00'},
-];
-
 const page = () => {
   return (
     <div className='flex flex-row'>
@@ -21,9 +17,12 @@ const page = () => {
             Emergencia
           </div>
 
+          {/* 
           <Tabla 
           data={data}
           />
+          
+          */}
         </div>
 
 
@@ -32,9 +31,11 @@ const page = () => {
             No Emergencia
           </div>
 
+          {/* 
           <Tabla 
           data={data}
           />
+          */}
         </div>
       </div>
     </div>
