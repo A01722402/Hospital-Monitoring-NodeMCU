@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import SideBar from '../components/SideBar/SideBar'
-import Tabla from '../components/Tabla/Tabla'
+import Tabla from '../components/TablaPacientes/TablaPacientes'
 
 const page = () => {
   return (
