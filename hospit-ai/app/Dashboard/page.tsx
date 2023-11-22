@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import SideBar from '../components/SideBar/SideBar'
+
 import TablaPedidos from '../components/TablaPedidos/TablaPedidos'
 
 
@@ -17,6 +18,7 @@ interface Data {
 const page = async () => {
   const res = await fetch('http://localhost:3001/api/pedidostabla', {next: {revalidate: 10}});
   const data: Data[] = await res.json();
+
 
   return (
     <div className='flex flex-row'>
