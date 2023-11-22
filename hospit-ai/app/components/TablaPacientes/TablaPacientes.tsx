@@ -2,24 +2,24 @@ import React from 'react';
 
 const TablaPacientes = ({ data } : { data:any }) => {
   return (
-    <table className="min-w-full divide-y divide-gray-200">
+    <table className="min-w-full divide-y divide-gray-200 rounded-sm">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Dorm</th>
-          <th>Status</th>
-          <th>Temperature</th>
-          <th>Pulse</th>
+          <th>UserId</th>
+          <th>Id</th>
+          <th>Title</th>
+          {/* <th>Completed</th> */}
+          {/* <th>Pulse</th> */}
         </tr>
       </thead>
       <tbody>
         {data.map((item:any) => (
           <tr key={item.id}>
-            <td>{item.name}</td>
-            <td>{item.dorm}</td>
-            <td>{item.status}</td>
-            <td>{item.temperature}</td>
-            <td>{item.pulse}</td>
+            <td>{item.userId}</td>
+            <td>{item.id}</td>
+            <td>{item.title}</td>
+            {/* <td>{item.completed}</td> */}
+            {/* <td>{item.pulse}</td> */}
           </tr>
         ))}
       </tbody>
