@@ -2,15 +2,15 @@ import SideBar from "@/app/components/SideBar/SideBar"
 import TablaPacientes from "@/app/components/TablaPacientes/TablaPacientes"
 
 interface Patient{
-  userId: number;
-  id: number;
-  title: string;
-  // completed: boolean;
-  // pulse: number;
+  name: string;
+  room: number;
+  status: boolean;
+  temperature: number;
+  pulse: number;
 }
 
 const page = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/albums');
+  const res = await fetch('http://localhost:3001/api/pacienteslista');
   const patients: Patient[] = await res.json();
   return (
     <div className="flex flex-row">

@@ -1,30 +1,33 @@
 import React from 'react';
 
 const TablaPacientes = ({ data } : { data:any }) => {
+
+
+
   return (
-    <table className="min-w-full divide-y divide-gray-200 rounded-sm">
+    <table className="w-4/5">
       <thead>
-        <tr>
-          <th>UserId</th>
-          <th>Id</th>
-          <th>Title</th>
-          {/* <th>Completed</th> */}
-          {/* <th>Pulse</th> */}
+        <tr className="bg-red-900 text-white font-normal">
+          <th className='w-1/5'>Nombre</th>
+          <th className='w-1/5'>Cuarto</th>
+          <th className='w-1/5'>Estatus de Pedido</th>
+          <th className='w-1/5'>Temperatura</th>
+          <th className='w-1/5'>Pulso</th>
         </tr>
       </thead>
       <tbody>
-        {data.map((item:any) => (
-          <tr key={item.id}>
-            <td>{item.userId}</td>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            {/* <td>{item.completed}</td> */}
-            {/* <td>{item.pulse}</td> */}
+        {data.map((item:any, index: number) => (
+          <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200"} key={item.Nombre}>
+            <td className="pl-3">{item.Nombre}</td>
+            <td className="pl-3">{item.Cuarto}</td>
+            <td className="pl-3">{item.Estatus ? "Pedidos" : "No hay pedidos"}</td>
+            <td className="pl-3 text-center ">{item.Temperatura}</td>
+            <td className="pl-3">{item.PulsoBPM}</td>
           </tr>
         ))}
       </tbody>
     </table>
-  );
+  );  
 };
 
 export default TablaPacientes;
