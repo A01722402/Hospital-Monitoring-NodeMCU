@@ -1,4 +1,4 @@
-
+import CheckBox from "./CheckBox/CheckBox"
 
 const TablaPedidos = ({data, filt} : {data:any, filt:number}) => {
 
@@ -30,7 +30,7 @@ const TablaPedidos = ({data, filt} : {data:any, filt:number}) => {
         <tbody>
             {data.map((item:any, index: number)  => (
                 <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200"} key={item.pedidoID}>
-                    <td> <input type="checkbox" ></input>   </td>
+                    <td> <CheckBox />   </td>
                     <td className="pl-3">{item.numCuarto}</td>
                     <td className="pl-3">{item.pacienteNombre}</td>
                     <td className="pl-3">{item.pedido}</td>

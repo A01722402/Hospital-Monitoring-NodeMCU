@@ -1,9 +1,6 @@
 import Link from 'next/link'
 import SideBar from '../components/SideBar/SideBar'
-
 import TablaPedidos from '../components/TablaPedidos/TablaPedidos'
-
-
 
 interface Data {
   pacienteNombre: string,
