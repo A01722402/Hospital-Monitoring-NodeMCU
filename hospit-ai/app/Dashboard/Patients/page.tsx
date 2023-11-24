@@ -2,11 +2,12 @@ import SideBar from "@/app/components/SideBar/SideBar"
 import TablaPacientes from "@/app/components/TablaPacientes/TablaPacientes"
 
 interface Patient{
-  name: string;
-  room: number;
-  status: boolean;
-  temperature: number;
-  pulse: number;
+  ID: number,
+  name: string,
+  room: number,
+  status: boolean,
+  temperature: number,
+  pulse: number
 }
 
 const page = async () => {
