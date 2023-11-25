@@ -46,6 +46,19 @@ app.get('/api/pacienteslista', async (req, res) => {
     }
 });
 
+app.delete('/api/deletePedido/:pedidoID', async (req, res) => {
+    const pedidoID = req.params.pedidoID;
+
+    try {
+        await pool.promise().query('DELETE FROM Pedidos WHERE idPedido = ?', [pedidoID]);
+        
+        res.status(200).send('Pedido deleted');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
+});
+
 // Starts the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

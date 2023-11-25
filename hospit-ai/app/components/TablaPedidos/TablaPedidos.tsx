@@ -31,6 +31,16 @@ const TablaPedidos = ({filt} : {filt:number}) => {
         return () => clearInterval(intervalID);
     }, [filt]);
 
+    const handleCheckBoxClick = async (pedidoID: number) => {
+        try {
+            await fetch(`http://localhost:3001/api/deletePedido/${pedidoID}`, {
+                method: 'DELETE',
+            });
+            fetchData();
+        } catch (err) {
+            console.error('Error fetching data', err);
+        }
+    }
 
   return (
     <table>
@@ -46,7 +56,7 @@ const TablaPedidos = ({filt} : {filt:number}) => {
         <tbody className='text-center'>
             {data.map((item:any, index: number)  => (
                 <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200"} key={item.pedidoID}>
-                    <td className='border'> <CheckBox />   </td>
+                    <td className='border'> <CheckBox onCheck={() => handleCheckBoxClick(item.pedidoID)} />   </td>
                     <td className='border'>{item.numCuarto}</td>
                     <td className='border'>{item.pacienteNombre}</td>
                     <td className='border'>{item.pedido}</td>
