@@ -67,7 +67,7 @@ app.get('/api/pedidostabla', async (req, res) => {
 
 app.get('/api/pacienteslista', async (req, res) => {
     try {
-        const [rows, fields] = await pool.promise().query('SELECT * FROM Pedidos');
+        const [rows, fields] = await pool.promise().query('SELECT Pacientes.idPaciente AS ID, Pacientes.nombre AS Nombre, Cuartos.idCuarto AS Cuarto, Pacientes.EstatusPedido AS Estatus, Cuartos.temperatura As Temperatura, Pacientes.PulsoBPM FROM PacienteCuartoPedido LEFT JOIN PacientesCuartos ON PacienteCuartoPedido.fk_PC = PacientesCuartos.idPC LEFT JOIN PacientesPedidos ON PacienteCuartoPedido.fk_PP = PacientesPedidos.idPP LEFT JOIN Pacientes ON PacientesCuartos.fk_Pacientes  = Pacientes.idPaciente LEFT JOIN Cuartos ON PacientesCuartos.fk_Cuartos  = idCuarto LEFT JOIN Pedidos ON PacientesPedidos.fk_Pedidos = idPedido');
         res.json(rows);
     } catch (error) {
         console.log(error);

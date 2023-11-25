@@ -1,30 +1,51 @@
 import React from 'react';
 
 const TablaPacientes = ({ data } : { data:any }) => {
+
   return (
-    <table className="min-w-full divide-y divide-gray-200 rounded-sm">
-      <thead>
-        <tr>
-          <th>UserId</th>
-          <th>Id</th>
-          <th>Title</th>
-          {/* <th>Completed</th> */}
-          {/* <th>Pulse</th> */}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item:any) => (
-          <tr key={item.id}>
-            <td>{item.userId}</td>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            {/* <td>{item.completed}</td> */}
-            {/* <td>{item.pulse}</td> */}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
+    <div className='w-full'>
+      <div className='w-[80%] mx-auto text-black'>
+        <div className='w-full'>
+          <div className='flex justify-center items-centers'>
+            <input
+              type='text'
+              placeholder="Buscar por nombre"
+              className='w-full font-primary text-md rounded-lg
+              px-4 py-3 text-black my-4 border border-gra bg-gray-50
+              shadow-lg outline-none'
+            />
+          </div>
+          <div>
+            <table className="w-full overflow-auto">
+              <thead>
+                <tr className="bg-red-900 text-white font-normal">
+                  <th className='w-1/6'>ID</th>
+                  <th className='w-1/6'>Nombre</th>
+                  <th className='w-1/6'>Cuarto</th>
+                  <th className='w-1/6'>Estatus de Pedido</th>
+                  <th className='w-1/6'>Temperatura</th>
+                  <th className='w-1/6'>Pulso</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item:any, index: number) => (
+                  <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200" } key={item.Nombre} >
+                    <td className="text-center border">{item.Id}</td>
+                    <td className="text-center border">{item.Nombre}</td>
+                    <td className="text-center border">{item.Cuarto}</td>
+                    <td className="text-center border">{item.Estatus=== false ? "Completado" : "Pendiente"}</td>
+                    <td className="text-center border">{item.Temperatura}</td>
+                    <td className="text-center border">{item.PulsoBPM}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );  
 };
 
 export default TablaPacientes;
