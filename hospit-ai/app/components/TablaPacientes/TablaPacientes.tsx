@@ -42,23 +42,21 @@ const TablaPacientes = () => {
             <table className="w-full overflow-auto">
               <thead>
                 <tr className="bg-red-900 text-white font-normal">
-                  <th className='w-1/6'>ID</th>
-                  <th className='w-1/6'>Nombre</th>
-                  <th className='w-1/6'>Cuarto</th>
-                  <th className='w-1/6'>Estatus de Pedido</th>
-                  <th className='w-1/6'>Temperatura</th>
-                  <th className='w-1/6'>Pulso</th>
+                  <th style={{width: "10%"}}>Cuarto</th>
+                  <th style={{width: "35%"}}>Nombre</th>
+                  <th style={{width: "30%"}}>Estatus de Pedido</th>
+                  <th style={{width: "15%"}}>Temperatura</th>
+                  <th style={{width: "10%"}}>Pulso</th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item:any, index: number) => (
-                  <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200" } key={item.Nombre} >
-                    <td className="text-center border">{item.Id}</td>
-                    <td className="text-center border">{item.Nombre}</td>
+                  <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200" } key={item.Cuarto} >
                     <td className="text-center border">{item.Cuarto}</td>
-                    <td className="text-center border">{item.Estatus=== false ? "Completado" : "Pendiente"}</td>
+                    <td className="text-center border">{item.Nombre}</td>
+                    <td className="text-center border">{item.EstatusPedido === 0 ? "Sin Pedido" : "Pendiente"}</td>
                     <td className="text-center border">{item.Temperatura}</td>
-                    <td className="text-center border">{item.PulsoBPM}</td>
+                    <td className="text-center border">{item.Pulso}</td>
                   </tr>
                 ))}
               </tbody>

@@ -25,40 +25,6 @@ const pool = mysql.createPool({
     queueLimit: 0,
 });
 
-// API route to get Pacientes from MySQL database
-app.get('/api/pacientes', async (req, res) => {
-    try {
-        const [rows, fields] = await pool.promise().query('SELECT * FROM Pacientes');
-        res.json(rows);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Server error');
-    }
-});
-
-// API route to get Cuartos from MySQL database
-app.get('/api/cuartos', async (req, res) => {
-    try {
-        const [rows, fields] = await pool.promise().query('SELECT * FROM Cuartos');
-        res.json(rows);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Server error');
-    }
-});
-
-// API route to get Pedidos from MySQL database
-app.get('/api/pedidos', async (req, res) => {
-    try {
-        const [rows, fields] = await pool.promise().query('SELECT * FROM Pedidos');
-        res.json(rows);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Server error');
-    }
-});
-
-
 app.get('/api/pedidostabla', async (req, res) => {
     try {
         const [rows, fields] = await pool.promise().query('SELECT Pacientes.nombre AS pacienteNombre, Cuartos.idCuarto AS numCuarto, Pedidos.emergencia AS emergencia, Pedidos.hora AS hora, Pedidos.pedido AS pedido, Pedidos.idPedido  AS pedidoID, Pacientes.idPaciente AS pacienteID FROM PacienteCuartoPedido LEFT JOIN PacientesCuartos ON PacienteCuartoPedido.fk_PC = PacientesCuartos.idPC LEFT JOIN PacientesPedidos ON PacienteCuartoPedido.fk_PP = PacientesPedidos.idPP LEFT JOIN Pacientes ON PacientesCuartos.fk_Pacientes  = Pacientes.idPaciente LEFT JOIN Cuartos ON PacientesCuartos.fk_Cuartos  = idCuarto LEFT JOIN Pedidos ON PacientesPedidos.fk_Pedidos = idPedido');
@@ -72,7 +38,7 @@ app.get('/api/pedidostabla', async (req, res) => {
 
 app.get('/api/pacienteslista', async (req, res) => {
     try {
-        const [rows, fields] = await pool.promise().query('SELECT Pacientes.idPaciente AS ID, Pacientes.nombre AS Nombre, Cuartos.idCuarto AS Cuarto, Pacientes.EstatusPedido AS Estatus, Cuartos.temperatura As Temperatura, Pacientes.PulsoBPM FROM PacienteCuartoPedido LEFT JOIN PacientesCuartos ON PacienteCuartoPedido.fk_PC = PacientesCuartos.idPC LEFT JOIN PacientesPedidos ON PacienteCuartoPedido.fk_PP = PacientesPedidos.idPP LEFT JOIN Pacientes ON PacientesCuartos.fk_Pacientes  = Pacientes.idPaciente LEFT JOIN Cuartos ON PacientesCuartos.fk_Cuartos  = idCuarto LEFT JOIN Pedidos ON PacientesPedidos.fk_Pedidos = idPedido');
+        const [rows, fields] = await pool.promise().query('SELECT Pacientes.idPaciente AS ID, Pacientes.nombre AS Nombre, Pacientes.EstatusPedido AS EstatusPedido, Pacientes.PulsoBPM AS Pulso, Cuartos.idCuarto AS Cuarto, Cuartos.temperatura AS Temperatura, Cuartos.humo AS Humo FROM PacientesCuartos LEFT JOIN Pacientes ON PacientesCuartos.fk_Pacientes = idPaciente LEFT JOIN Cuartos ON PacientesCuartos.fk_Cuartos  = idCuarto WHERE Cuartos.ocupado != 0;');
         res.json(rows);
     } catch (error) {
         console.log(error);

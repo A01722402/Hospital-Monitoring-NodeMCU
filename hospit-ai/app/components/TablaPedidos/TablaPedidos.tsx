@@ -35,22 +35,22 @@ const TablaPedidos = ({filt} : {filt:number}) => {
   return (
     <table>
         <thead>
-            <tr className="bg-red-900 text-white font-normal">
+            <tr className="bg-red-900 text-white font-normal text-center">
                 <th></th>
-                <th className='text-left pl-3' style={{width: "10%"}}>No. Cuarto</th>
-                <th className='text-left pl-3' style={{width: "20%"}}>Nombre</th>
+                <th style={{width: "10%"}}>No. Cuarto</th>
+                <th style={{width: "20%"}}>Nombre</th>
                 <th style={{width: "60%"}}>Pedido</th>
                 <th style={{width: "10%"}}>Hora</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody className='text-center'>
             {data.map((item:any, index: number)  => (
                 <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200"} key={item.pedidoID}>
-                    <td> <CheckBox />   </td>
-                    <td className="pl-3">{item.numCuarto}</td>
-                    <td className="pl-3">{item.pacienteNombre}</td>
-                    <td className="pl-3">{item.pedido}</td>
-                    <td className="text-center">{item.hora}</td>
+                    <td className='border'> <CheckBox />   </td>
+                    <td className='border'>{item.numCuarto}</td>
+                    <td className='border'>{item.pacienteNombre}</td>
+                    <td className='border'>{item.pedido}</td>
+                    <td className='border'>{item.hora}</td>
                 </tr>
             ))}
         </tbody>
