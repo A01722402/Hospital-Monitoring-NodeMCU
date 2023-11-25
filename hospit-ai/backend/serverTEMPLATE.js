@@ -1,9 +1,14 @@
 
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require('cors');
+
 
 // Handles the HTTP requests and responsees
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Sends the info to the port 3001 or if the port is especified by the environment sends it there
 const PORT = process.env.PORT || 3001;

@@ -1,20 +1,36 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import CheckBox from "./CheckBox/CheckBox"
 
-const TablaPedidos = ({data, filt} : {data:any, filt:number}) => {
+const TablaPedidos = ({filt} : {filt:number}) => {
+    const [data, setData] = useState([]);
 
-    if (filt === 1) {
-        data = data.filter((item:any) => {
-            return item.emergencia === filt
-        })
-    } else {
-        data = data.filter((item:any) => {
-            return item.emergencia === filt
-        })
+    const fetchData = async () => {
+        try {
+            const res = await fetch('http://localhost:3001/api/pedidostabla');
+            const allData = await res.json();
+
+            const filteredData = allData.filter((item:any) => {
+                item.hora = item.hora.slice(11, 16)
+                return item.emergencia === filt
+            })
+
+            setData(filteredData);
+
+        } catch (err) {
+            console.error('Error fetching data', err);
+        }
     }
 
-    for(let i = 0; i < data.length; i++) {
-        data[i].hora = data[i].hora.slice(11, 16)
-    }
+    useEffect(() => {
+        fetchData()
+
+        const intervalID = setInterval(fetchData, 10000);
+
+        return () => clearInterval(intervalID);
+    }, [filt]);
+
 
   return (
     <table>

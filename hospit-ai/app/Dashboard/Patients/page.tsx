@@ -1,18 +1,7 @@
 import SideBar from "@/app/components/SideBar/SideBar"
 import TablaPacientes from "@/app/components/TablaPacientes/TablaPacientes"
 
-interface Patient{
-  ID: number,
-  name: string,
-  room: number,
-  status: boolean,
-  temperature: number,
-  pulse: number
-}
-
 const page = async () => {
-  const res = await fetch('http://localhost:3001/api/pacienteslista');
-  const patients: Patient[] = await res.json();
   return (
     <div className="flex flex-row">
         <SideBar />
@@ -24,9 +13,7 @@ const page = async () => {
             Register:
           </div>
 
-          <TablaPacientes
-            data = {patients}
-          />
+          <TablaPacientes />
         </div>
 
     </div>

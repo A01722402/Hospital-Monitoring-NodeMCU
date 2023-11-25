@@ -1,6 +1,29 @@
-import React from 'react';
+'use client'
 
-const TablaPacientes = ({ data } : { data:any }) => {
+import { useEffect, useState } from 'react'
+
+const TablaPacientes = () => {
+  const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const res = await fetch('http://localhost:3001/api/pacienteslista');
+            const allData = await res.json();
+
+            setData(allData);
+
+        } catch (err) {
+            console.error('Error fetching data', err);
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+
+        const intervalID = setInterval(fetchData, 10000);
+
+        return () => clearInterval(intervalID);
+    }, []);
 
   return (
     <div className='w-full'>
