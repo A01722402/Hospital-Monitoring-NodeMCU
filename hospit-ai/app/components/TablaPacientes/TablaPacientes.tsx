@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import SearchBar from '../SearchBar/SearchBar';
+import styles from './TablaPacientes.module.css'
 
 const TablaPacientes = () => {
   const [data, setData] = useState([]);
@@ -46,7 +47,7 @@ const TablaPacientes = () => {
                   <th style={{width: "35%"}}>Nombre</th>
                   <th style={{width: "30%"}}>Estatus de Pedido</th>
                   <th style={{width: "15%"}}>Temperatura</th>
-                  <th style={{width: "10%"}}>Pulso</th>
+                  <th style={{width: "10%"}}> Pulso</th>
                 </tr>
               </thead>
               <tbody>
@@ -57,7 +58,7 @@ const TablaPacientes = () => {
                     <td className="text-center border">{item.Nombre}</td>
                     <td className="text-center border">{item.EstatusPedido === 0 ? "" : "Pendiente"}</td>
                     <td className="text-center border">{item.Temperatura}° C</td>
-                    <td className="text-center border">{item.Pulso}</td>
+                    <td className="grid grid-cols-4 text-center border items-center justify-center "><div className='ml-5 mt-2'><div className={styles.heart}></div></div> <div className='col-span-3'>{item.Pulso}</div></td>
                   </tr>
                   ))
                 ))}
