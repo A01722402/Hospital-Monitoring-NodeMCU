@@ -5,15 +5,14 @@ const page = async () => {
   return (
     <div className="flex flex-row">
         <SideBar />
-        <div className="flex flex-col flex-grow p-11">
-          <div className="text-5xl font-bold pb-11">
+        <div className="flex flex-col flex-grow">
+          <div className='text-5xl py-9 pl-12 bg-red-800 text-white'>
             Patients
           </div>
-          <div className="text-2xl font-bold pb-11">
-            Register:
-          </div>
 
-          <TablaPacientes />
+          <div className="pt-16">
+            <TablaPacientes />
+          </div>
         </div>
 
     </div>

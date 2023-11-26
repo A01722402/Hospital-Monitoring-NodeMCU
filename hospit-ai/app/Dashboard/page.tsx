@@ -8,19 +8,21 @@ const page = async () => {
       <SideBar />
 
       <div className='flex flex-col flex-grow'>
-        <div className='text-6xl py-7 pl-7 bg-red-900 text-white'>
+        <div className='text-5xl py-9 pl-12 bg-red-800 text-white'>
             Pedidos
         </div>
 
-        <div className='flex flex-col flex-grow p-11 bg-white'>
+        <div className='flex flex-col flex-grow pl-11 pt-16 bg-white'>
 
           <div className='flex flex-col pb-36'>
             <div className='pl-12 text-3xl font-bold pb-3'> 
             🚨 Emergencia
             </div>
-  
-            <TablaPedidos 
-            filt={1} />
+            
+            <div className='flex items-center justify-center'>
+              <TablaPedidos 
+              filt={1} />
+            </div>
             
           </div>
 
@@ -30,9 +32,10 @@ const page = async () => {
               No Emergencia
             </div>
 
+            <div className='flex items-center justify-center'>
             <TablaPedidos 
-            filt={0}
-            />
+            filt={0} />
+            </div>
 
           </div>
         </div>

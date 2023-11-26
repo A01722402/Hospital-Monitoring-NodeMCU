@@ -55,7 +55,7 @@ const TablaPacientes = () => {
                   <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200" } key={item.Cuarto} >
                     <td className="text-center border">{item.Cuarto}</td>
                     <td className="text-center border">{item.Nombre}</td>
-                    <td className="text-center border">{item.EstatusPedido === 0 ? "Sin Pedido" : "Pendiente"}</td>
+                    <td className="text-center border">{item.EstatusPedido === 0 ? "" : "Pendiente"}</td>
                     <td className="text-center border">{item.Temperatura}° C</td>
                     <td className="text-center border">{item.Pulso}</td>
                   </tr>

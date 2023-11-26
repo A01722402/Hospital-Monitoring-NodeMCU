@@ -43,28 +43,30 @@ const TablaPedidos = ({filt} : {filt:number}) => {
     }
 
   return (
-    <table>
-        <thead>
-            <tr className="bg-red-900 text-white font-normal text-center">
-                <th></th>
-                <th style={{width: "10%"}}>No. Cuarto</th>
-                <th style={{width: "20%"}}>Nombre</th>
-                <th style={{width: "60%"}}>Pedido</th>
-                <th style={{width: "10%"}}>Hora</th>
-            </tr>
-        </thead>
-        <tbody className='text-center'>
-            {data.map((item:any, index: number)  => (
-                <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200"} key={item.pedidoID}>
-                    <td className='border'> <CheckBox onCheck={() => handleCheckBoxClick(item.pedidoID)} />   </td>
-                    <td className='border'>{item.numCuarto}</td>
-                    <td className='border'>{item.pacienteNombre}</td>
-                    <td className='border'>{item.pedido}</td>
-                    <td className='border'>{item.hora}</td>
+    <div className='w-[85%]'>
+        <table>
+            <thead>
+                <tr className="bg-red-900 text-white font-normal text-center">
+                    <th></th>
+                    <th style={{width: "10%"}}>No. Cuarto</th>
+                    <th style={{width: "20%"}}>Nombre</th>
+                    <th style={{width: "60%"}}>Pedido</th>
+                    <th style={{width: "10%"}}>Hora</th>
                 </tr>
-            ))}
-        </tbody>
-    </table>
+            </thead>
+            <tbody className='text-center'>
+                {data.map((item:any, index: number)  => (
+                    <tr className={index % 2 === 0 ? "bg-white" : "bg-gray-200"} key={item.pedidoID}>
+                        <td className='border'> <CheckBox onCheck={() => handleCheckBoxClick(item.pedidoID)} />   </td>
+                        <td className='border'>{item.numCuarto}</td>
+                        <td className='border'>{item.pacienteNombre}</td>
+                        <td className='border'>{item.pedido}</td>
+                        <td className='border'>{item.hora}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
   )
 }
 
