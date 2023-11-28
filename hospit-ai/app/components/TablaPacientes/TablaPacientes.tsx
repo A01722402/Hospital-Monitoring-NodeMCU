@@ -45,9 +45,10 @@ const TablaPacientes = () => {
                 <tr className="bg-red-900 text-white font-normal">
                   <th style={{width: "10%"}}>Cuarto</th>
                   <th style={{width: "35%"}}>Nombre</th>
-                  <th style={{width: "30%"}}>Estatus de Pedido</th>
-                  <th style={{width: "15%"}}>Temperatura</th>
+                  <th style={{width: "25%"}}>Estatus de Pedido</th>
+                  <th style={{width: "10%"}}>Temperatura</th>
                   <th style={{width: "10%"}}> Pulso</th>
+                  <th style={{width: "5%"}}>Humo</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,6 +60,7 @@ const TablaPacientes = () => {
                     <td className="text-center border">{item.EstatusPedido === 0 ? "" : "Pendiente"}</td>
                     <td className="text-center border">{item.Temperatura}° C</td>
                     <td className="grid grid-cols-4 text-center border items-center justify-center "><div className='ml-5 mt-2'><div className={styles.heart}></div></div> <div className='col-span-3'>{item.Pulso}</div></td>
+                    <td className="text-center border">{item.Humo === 0 ? "" : "🔥"}</td>
                   </tr>
                   ))
                 ))}

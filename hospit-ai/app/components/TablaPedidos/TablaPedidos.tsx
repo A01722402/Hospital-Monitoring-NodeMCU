@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import CheckBox from "./CheckBox/CheckBox"
 
-const TablaPedidos = ({filt} : {filt:number}) => {
+const TablaPedidos = () => {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
@@ -11,9 +11,9 @@ const TablaPedidos = ({filt} : {filt:number}) => {
             const res = await fetch('http://localhost:3001/api/pedidostabla');
             const allData = await res.json();
 
-            const filteredData = allData.filter((item:any) => {
+            const filteredData = allData.map((item:any) => {
                 item.hora = item.hora.slice(11, 16)
-                return item.emergencia === filt
+                return item;
             })
 
             setData(filteredData);
@@ -29,7 +29,7 @@ const TablaPedidos = ({filt} : {filt:number}) => {
         const intervalID = setInterval(fetchData, 10000);
 
         return () => clearInterval(intervalID);
-    }, [filt]);
+    }, []);
 
     const handleCheckBoxClick = async (pedidoID: number) => {
         try {
