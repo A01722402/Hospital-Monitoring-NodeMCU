@@ -46,7 +46,7 @@ const TablaPedidos = () => {
     <div className='w-[85%]'>
         <table>
             <thead>
-                <tr className="bg-red-900 text-white font-normal text-center">
+                <tr className="bg-red-500 text-white font-normal text-center">
                     <th></th>
                     <th style={{width: "10%"}}>No. Cuarto</th>
                     <th style={{width: "20%"}}>Nombre</th>

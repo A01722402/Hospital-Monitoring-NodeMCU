@@ -12,10 +12,7 @@ const page = async () => {
         <div className='flex flex-col flex-grow'>
         <div className="flex flex-col flex-grow">
           <div className='text-5xl py-9 pl-12 bg-red-500 text-white'>
-            Pacientes
-          </div>
-          <div className="pt-16">
-            <TablaPacientes />
+            Ajustes
           </div>
         </div>
       </div>

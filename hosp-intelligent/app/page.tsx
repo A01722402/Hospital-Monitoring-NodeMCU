@@ -43,9 +43,9 @@ export default function Home() {
         </div>
     
         <div className="flex justify-center">
-          <Link href="/Dashboard">
+          <Link href="/Login">
             <button className="bg-red-700 px-20 py-5 text-white font-bold border-none rounded-md text-2xl">
-              Iniciar
+              Acceder
             </button>
           </Link>
         </div>
