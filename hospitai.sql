@@ -15,6 +15,7 @@ CREATE TABLE Pacientes (
     nombre VARCHAR(255),
     EstatusPedido VARCHAR(50),
     PulsoBPM INTEGER
+	hora TIMESTAMP
 );
 
 CREATE TABLE Pedidos (
