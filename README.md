@@ -1,5 +1,5 @@
 # Hospital-Monitoring-NodeMCU
-** Para correr la página **
+**Para correr la página:**
 ```shell
 cd hosp-intelligent
 npm run dev
